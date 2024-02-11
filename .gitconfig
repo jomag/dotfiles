@@ -2,11 +2,29 @@
 name = Jonatan Magnusson
 email = jonatan.magnusson@gmail.com
 
+[rerere]
+; REuse REcorded REsolution (remember solution to conflicts)
+enabled = true
+
+[branch]
+sort = -committerdate
+
 [format]
-	pretty = oneline
+pretty = oneline
 
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+
+[includeIf "gitdir:~/above/"]
+path = ~/.gitconfig-above
+
+[includeIf "gitdir:~/cmteknik/"]
+path = ~/.gitconfig-cmteknik
+
+[maintenance]
+auto = false
+strategy = incremental
+
