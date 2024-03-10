@@ -1,0 +1,10 @@
+{
+	"links": {
+		"vimrc": "~/.vimrc",
+		"alacritty": "~/.config/alacritty",
+		"fish/config.fish": "~/.config/fish/config.fish",
+		"fish/functions": "~/.config/fish/functions",
+		"starship.toml": "~/.config/starship.toml",
+		"nvim": "~/.config/nvim"
+	}
+}
