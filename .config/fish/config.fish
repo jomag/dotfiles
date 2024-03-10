@@ -19,10 +19,13 @@ end
 
 # Alias 'm' to build using make and say "OK" or "FAILED" on completion
 alias m='make; and say OK; or say Misslyckades'
-alias n="ninja"
+# alias n="ninja"
 
 # Alias: "v" to show current week
 alias v="date +'Vecka %-W'"
+
+# Alias: "n" to nvim
+alias n=nvim
 
 # Add /usr/local/bin to system path
 set PATH /usr/local/bin $PATH
