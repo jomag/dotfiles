@@ -1,4 +1,4 @@
-# import = [ "~/.config/alacritty/themes/cobalt2.toml" ]
+import = [ "~/.config/alacritty/themes/cobalt2.toml" ]
 
 [window]
 padding = { x = 3, y = 3 }
