@@ -6,6 +6,7 @@
 		"fish/functions": "~/.config/fish/functions",
 		"starship.toml": "~/.config/starship.toml",
 		"nvim": "~/.config/nvim",
-		"_tmux.conf": "~/.tmux.conf"
+		"_tmux.conf": "~/.tmux.conf",
+		"wezterm.lua": "~/.wezterm.lua"
 	}
 }

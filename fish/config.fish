@@ -26,6 +26,7 @@ alias v="date +'Vecka %-W'"
 
 # Alias: "n" to nvim
 alias n=nvim
+alias n.=nvim .
 
 # Add /usr/local/bin to system path
 set PATH /usr/local/bin $PATH

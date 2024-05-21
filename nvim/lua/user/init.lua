@@ -1,2 +1,6 @@
-require("config.lua")
-
+require 'user.options'
+require 'user.lazy'
+require 'user.keybindings'
+require 'user.theme'
+require 'user.tree'
+require 'user.cmp'

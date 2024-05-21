@@ -1,9 +1,19 @@
--- [[ Configure plugins ]]
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
+-- Install `lazy.nvim` plugin manager
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  }
+end
+
+vim.opt.rtp:prepend(lazypath)
+
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
@@ -14,34 +24,8 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
-  {
-    -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
-    },
-  },
-
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-   },
-  },
+  -- Useful plugin to show you pending keybinds.
+  { 'folke/which-key.nvim',  opts = {} },
 
   {
     -- Autocompletion
@@ -71,8 +55,6 @@ require('lazy').setup({
     },
   },
 
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -162,20 +144,6 @@ require('lazy').setup({
   --   end,
   -- },
 
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
   -- {
   --   "lalitmee/cobalt2.nvim",
   --   event={"ColorSchemePre"},
@@ -184,7 +152,7 @@ require('lazy').setup({
   --     require("colorbuddy").colorscheme("cobalt2")
   --   end,
   -- },
-  
+
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -193,10 +161,42 @@ require('lazy').setup({
   },
 
   {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    opts = {},
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {}
   },
+
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function() end,
+  },
+
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function() end,
+  },
+
+  {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function() end,
+  },
+
+  -- Not using anymore: replaced with tmux.
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   version = "*",
+  --   opts = {},
+  -- },
 
   {
     -- Add indentation guides even on blank lines
@@ -210,46 +210,34 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- Fuzzy Finder (files, lsp, etc)
-  {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-      -- Only load if `make` is available. Make sure you have the system
-      -- requirements installed.
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
-        cond = function()
-          return vim.fn.executable 'make' == 1
-        end,
-      },
-    },
-  },
-
-  {
-    -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
-  },
-
   {
     "nvim-tree/nvim-tree.lua",
-    version="*",
-    lazy=false,
+    version = "*",
+    lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
+    --  config = function()
+    --    require("nvim-tree").setup {}
+    --  end,
+  },
+
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateRight",
+      "TmuxNavigateUp",
+      "TmuxNavigateDown",
+      "TmuxNavigatePrevious"
+    },
+    keys = {
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    }
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -258,13 +246,6 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  -- Import all dependencies from .config/nvim/lua/plugins
+  { import = "plugins" },
 }, {})
-
-

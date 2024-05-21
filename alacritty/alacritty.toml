@@ -1,13 +1,28 @@
-import = [ "~/.config/alacritty/themes/cobalt2.toml" ]
+import = [
+  "~/.config/alacritty/themes/terafox.toml",
+  # "~/.config/alacritty/themes/cobalt2.toml"
+]
 
 [window]
 padding = { x = 3, y = 3 }
-decorations = "Full"
-opacity = 1.0
-blur = false
+# decorations = "Buttonless"
+opacity = 0.9
+blur = true
 resize_increments = false
 
 [font]
-normal = { family = "Operator Mono", style = "Book" }
-size = 14
+#normal = { family = "Operator Mono"), style = "Book" }
+# normal = { family = "OperatorMono Nerd Font", style = "Book" }
+# normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+normal.family = "MesloLGS Nerd Font Mono"
+size = 13
+offset.y = 1	
+
+[cursor]
+blink_interval = 400
+blink_timeout = 0
+
+[cursor.style]
+shape = "Block"
+blinking = "Always"
 

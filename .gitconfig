@@ -12,12 +12,6 @@ sort = -committerdate
 [format]
 pretty = oneline
 
-[filter "lfs"]
-process = git-lfs filter-process
-required = true
-clean = git-lfs clean -- %f
-smudge = git-lfs smudge -- %f
-
 [includeIf "gitdir:~/above/"]
 path = ~/.gitconfig-above
 
@@ -28,3 +22,8 @@ path = ~/.gitconfig-cmteknik
 auto = false
 strategy = incremental
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
