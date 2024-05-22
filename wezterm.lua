@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 config.color_scheme = "terafox"
 config.font = wezterm.font("MesloLGS Nerd Font Mono")
@@ -16,5 +17,16 @@ config.window_padding = {
 	bottom = 2,
 }
 config.hide_tab_bar_if_only_one_tab = true
+
+config.keys = {
+	{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+}
+
+-- Overrides for windows
+if not not os.getenv('HOMEDRIVE') then
+	config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
+	config.font_size = 9
+	config.window_background_opacity = 1.0
+end
 
 return config

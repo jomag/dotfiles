@@ -56,6 +56,11 @@ if test -d /opt/homebrew
 	export LIBRARY_PATH
 end
 
+# Add NeoVim to path
+if test -d /opt/nvim
+    set PATH /opt/nvim/bin $PATH
+end
+
 # Add Rust to path
 if test -d $HOME/.cargo
     set PATH ~/.cargo/bin $PATH
