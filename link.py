@@ -23,9 +23,23 @@ for src, dst in links.items():
         elif os.path.exists(dst_path):
             print(f"{pre}: target path already exists")
         else:
+            os.makedirs(os.path.dirname(dst_path), exist_ok=True)
             os.symlink(src_path, dst_path)
             print(f"{pre}: linked")
     else:
         print(f"{pre}: not found")
 
+# Detect if we are running on a Windows system
+# and if so also copy files to the Windows directory
+def is_windows():
+    try:
+        with open("/proc/version") as fp:
+            content = fp.read()
+            if "microsoft" in content.lower():
+                return True
+    except FileNotFoundError:
+        pass
+    return False
+
+print("Windows system?", is_windows())
 

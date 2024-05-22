@@ -8,5 +8,8 @@
 		"nvim": "~/.config/nvim",
 		"_tmux.conf": "~/.tmux.conf",
 		"wezterm.lua": "~/.wezterm.lua"
+	},
+	"windows": {
+		"wezterm.lua": "~/.wezterm.lua"
 	}
 }
