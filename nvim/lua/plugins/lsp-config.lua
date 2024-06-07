@@ -47,6 +47,7 @@ return {
         svelte = {},
         graphql = {},
         emmet_ls = {},
+        astro = {},
       }
 
       local function on_attach(_, bufnr)
