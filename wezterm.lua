@@ -3,13 +3,14 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 config.color_scheme = "terafox"
-config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
+-- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 config.font_size = 13
-config.colors = {
-	background = "black",
-}
+-- config.colors = {
+-- 	background = "black",
+-- }
 config.macos_window_background_blur = 20
-config.window_background_opacity = 0.7
+-- config.window_background_opacity = 0.7
 config.window_padding = {
 	left = 2,
 	right = 2,
