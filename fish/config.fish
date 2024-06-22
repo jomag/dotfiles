@@ -274,10 +274,6 @@ end
 # funcsave -q fish_greeting
 funcsave fish_greeting
 
-function =
-  math "$argv"
-end
-
 # funcsave -q =
 funcsave =
 
