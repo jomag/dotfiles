@@ -218,37 +218,6 @@ function olle
   set -e U
 end
 
-function fish_greeting
-  if false
-    if type -f -q lolcat
-      olle | lolcat
-    else
-      olle
-    end
-  end
-
-  if set -q UTILS_FOUND
-    echo -n "Using: "
-    set_color green
-    echo -n $UTILS_FOUND
-    set_color normal
-
-    if set -q UTILS_MISSING
-      echo -n ". "
-    else
-      echo ""
-    end
-  end
-
-  if set -q UTILS_MISSING
-    echo -n "Missing: "
-    set_color red
-    echo -n $UTILS_MISSING
-    set_color normal
-    echo "."
-  end
-end
-
 function alt_fish_greeting
   if type -f -q neofetch
     neofetch
@@ -272,10 +241,10 @@ function alt_fish_greeting
 end
 
 # funcsave -q fish_greeting
-funcsave fish_greeting
+# funcsave fish_greeting
 
 # funcsave -q =
-funcsave =
+# funcsave =
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jonatan/google-cloud-sdk/path.fish.inc' ]; . '/Users/jonatan/google-cloud-sdk/path.fish.inc'; end

@@ -1,11 +1,11 @@
 function fish_greeting
-  if false
-    if type -f -q lolcat
-      olle | lolcat
-    else
-      olle
-    end
+  if type -f -q fastfetch
+    fastfetch
+  else if type -f -q neofetch
+    neofetch
   end
+
+  if false
 
   if set -q UTILS_FOUND
     echo -n "Using: "
@@ -26,5 +26,7 @@ function fish_greeting
     echo -n $UTILS_MISSING
     set_color normal
     echo "."
+  end
+  
   end
 end

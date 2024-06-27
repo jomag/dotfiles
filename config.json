@@ -5,9 +5,11 @@
 		"fish/config.fish": "~/.config/fish/config.fish",
 		"fish/functions": "~/.config/fish/functions",
 		"starship.toml": "~/.config/starship.toml",
+		"fastfetch.jsonc": "~/.config/fastfetch/config.jsonc",
 		"nvim": "~/.config/nvim",
 		"_tmux.conf": "~/.tmux.conf",
-		"wezterm.lua": "~/.wezterm.lua"
+		"wezterm.lua": "~/.wezterm.lua",
+		"_gitconfig": "~/.gitconfig"
 	},
 	"windows": {
 		"wezterm.lua": "~/.wezterm.lua"
