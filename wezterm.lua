@@ -2,7 +2,15 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-config.color_scheme = "terafox"
+-- Goes well with the Terafox Neovim theme
+-- config.color_scheme = "terafox"
+
+-- Goes well with the Tokyo Night Neovim theme
+config.color_scheme = "Tokyo Night"
+
+-- Goes well with the Catpuccin Neovim theme
+-- config.color_scheme = "Catppuccin Mocha"
+
 config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 config.font_size = 12

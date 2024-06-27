@@ -25,4 +25,5 @@ require("tokyonight").setup({
   on_highlights            = function(highlights, colors) end,
 })
 
-vim.cmd("colorscheme terafox")
+-- vim.cmd("colorscheme terafox")
+vim.cmd("colorscheme tokyonight")
