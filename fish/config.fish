@@ -127,6 +127,10 @@ if test -d ~/bin
 	set PATH ~/bin $PATH
 end
 
+if test -d ~/.local/bin
+  set PATH ~/.local/bin $PATH
+end
+
 # Add ARM toolchain to path
 if test -d /usr/local/gcc-arm
 	set PATH /usr/local/gcc-arm/bin $PATH
@@ -264,3 +268,15 @@ end
 #  set --append UTILS_MISSING "exa"
 #end
 
+# Use "bat" instead of "cat" if available
+# In Debian, the command name is "batcat"
+if type -f -q batcat
+  alias bat=batcat
+end
+
+if test -f bat
+   or test -f batcat
+  # Probably not a good idea:
+  # alias cat=bat
+  alias less='bat --paging=always'
+end

@@ -5,7 +5,7 @@ local act = wezterm.action
 config.color_scheme = "terafox"
 config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
-config.font_size = 13
+config.font_size = 12
 -- config.colors = {
 -- 	background = "black",
 -- }
