@@ -19,6 +19,7 @@ return {
       local lspconfig = require 'lspconfig'
 
       local servers = {
+        astro = {},
         clangd = {},
         pyright = {},
         rust_analyzer = {},
@@ -27,6 +28,7 @@ return {
           -- if package.json is not found. But it does not seem to work.
           -- The goal here is to differentiate between Deno and Node projects.
           root_dir = lspconfig.util.root_pattern 'package.json',
+          filetypes = { 'astro' },
         },
         html = {},
         -- denols = {
@@ -56,7 +58,6 @@ return {
           if desc then
             desc = 'LSP: ' .. desc
           end
-          vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
         end
 
         nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -74,7 +75,7 @@ return {
         nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
         -- Show documentation for the item under the cursor
-        nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+        -- nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
         nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
         -- Manage workspace folders

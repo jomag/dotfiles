@@ -22,6 +22,7 @@ return {
         liquid = { 'prettier' },
         lua = { 'stylua' },
         python = { 'isort', 'black' },
+        astro = { 'prettier', 'prettier-plugin-astro' },
       },
 
       format_on_save = {

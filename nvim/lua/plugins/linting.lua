@@ -6,11 +6,11 @@ return {
 
     -- Linters by file type
     lint.linters_by_ft = {
-      javascript = { 'eslint_d' },
+      javascript = { 'eslint' },
       typescript = {},
-      javascriptreact = { 'eslint_d' },
+      javascriptreact = { 'eslint' },
       typescriptreact = {},
-      svelte = { 'eslint_d' },
+      svelte = { 'eslint' },
       python = { 'pylint' },
     }
 

@@ -13,12 +13,16 @@ config.color_scheme = "Tokyo Night"
 
 config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
-config.font_size = 12
+
+config.font_size = 13
+
 -- config.colors = {
 -- 	background = "black",
 -- }
-config.macos_window_background_blur = 20
--- config.window_background_opacity = 0.7
+
+-- config.macos_window_background_blur = 20
+-- config.window_background_opacity = 0.8
+
 config.window_padding = {
 	left = 2,
 	right = 2,
@@ -28,11 +32,11 @@ config.window_padding = {
 config.hide_tab_bar_if_only_one_tab = true
 
 config.keys = {
-	{ key = 'V', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+	{ key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
 }
 
 -- Overrides for windows
-if not not os.getenv('HOMEDRIVE') then
+if not not os.getenv("HOMEDRIVE") then
 	config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
 	config.font_size = 9
 	config.window_background_opacity = 1.0
