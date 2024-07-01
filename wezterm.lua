@@ -15,6 +15,7 @@ config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 
 config.font_size = 13
+config.line_height = 1.2
 
 -- config.colors = {
 -- 	background = "black",
