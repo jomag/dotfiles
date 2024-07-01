@@ -1,0 +1,250 @@
+export LDFLAGS="-L/opt/homebrew/opt/freetds/lib -L/opt/homebrew/opt/openssl@3/lib"
+
+# Bundle and Rails aliases
+alias be="bundle exec"
+alias br="bundle exec rails"
+alias brails="bundle exec rails"
+alias brake="bundle exec rake"
+
+# Copy Kitty terminfo to remote machines automatically
+# if test $TERM = "xterm-kitty"
+#   alias ssh="kitty +kitten ssh"
+# fi
+
+# Always display ls with color
+case $(uname) in
+  Darwin)
+    alias ls="ls -F -G"
+    ;;
+  *)
+    alias ls="ls -F --color=yes"
+esac
+
+# Alias: "v" to show current week
+alias v="date +'Vecka %-W'"
+
+# Alias: "n" to nvim
+alias n=nvim
+alias n.=nvim .
+
+# Add /usr/local/bin to system path
+export PATH=/usr/local/bin:$PATH
+
+# Add the local node binaries to path
+export PATH="./node_modules/.bin:$PATH"
+
+# Add Android tools to path
+if [ -d "$HOME/Library/Android" ]; then
+	export PATH="~/Library/Android/sdk/platform-tools:$PATH"
+	export PATH="~/Library/Android/sdk/tools:$PATH"
+	export PATH="~/Library/Android/sdk/emulator:$PATH"
+fi
+
+if [ -d "$HOME/Android" ]; then
+	export PATH="~/Android/Sdk/platform-tools:$PATH"
+	export PATH="~/Android/Sdk/tools:$PATH"
+	export PATH="~/Android/Sdk/emulator:$PATH"
+fi
+
+# Add Homebrew in /opt to path
+if [ -d "/opt/homebrew" ]; then
+	export PATH="/opt/homebrew/bin:$PATH"
+
+	# Add Homebrew libraries to library path
+	set LIBRARY_PATH "$(brew --prefix)/lib $LIBRARY_PATH"
+	export LIBRARY_PATH
+fi
+
+# Add NeoVim to path
+if [ -d /opt/nvim ]; then
+    export PATH="/opt/nvim/bin:$PATH"
+fi
+
+# Add Rust to path
+if [ -d "$HOME/.cargo" ]; then
+    export PATH="~/.cargo/bin:$PATH"
+fi
+
+# Add Go to path. $GOPATH is by default $HOME/go.
+if [ -d "$HOME/go" ]; then
+    export PATH="~/go/bin:$PATH"
+fi
+
+if [ -d "/opt/go" ]; then
+	export PATH="/opt/go/bin:$PATH"
+fi
+
+# Add Qt to path (keg only)
+if [ -d "/usr/local/opt/qt/bin" ]; then
+    export PATH="/usr/local/opt/qt/bin:$PATH"
+fi
+
+# Add Node installed in /opt to path
+if [ -d "/opt/node" ]; then
+	export PATH="/opt/node/bin:$PATH"
+fi
+
+# Add Flutter to path
+if [ -d "$HOME/flutter" ]; then
+    export PATH="~/flutter/bin:$PATH"
+fi
+
+# Add Homebrew for Linux to path
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi
+
+if [ -d "$HOME/.linuxbrew" ]; then
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+fi
+
+# Add GNU Arm Embedded Toolchain to path
+if [ -d "$HOME/.gcc-arm" ]; then
+    export PATH="$HOME/.gcc-arm/bin:$PATH"
+fi
+
+if [ -d "/usr/local/gcc-arm" ]; then
+	export PATH="/usr/local/gcc-arm/bin:$PATH"
+fi
+
+# Check for .rbenv
+if [ -d "$HOME/.rbenv" ]; then
+    # Add ~/.rbenv/bin to path
+    export PATH="$HOME/.rbenv/bin:$PATH"
+
+    # Enable rbenv
+    # status --is-interactive && . (rbenv init -|psub)
+fi
+
+# Add Homebrew Ruby to path
+# if [ -d "/usr/local/opt/ruby/bin" ]; then
+#    export PATH="/usr/local/opt/ruby/bin:$PATH"
+# fi
+
+# Add user bin
+if [ -d "~/bin" ]; then
+	export PATH="~/bin:$PATH"
+fi
+
+if [ -d "~/.local/bin" ]; then
+  export PATH="~/.local/bin:$PATH"
+fi
+
+# SSH to babbage directly or via nodens
+function babbage() {
+  if /sbin/ifconfig | grep 10.11.100 >/dev/null; then
+    ssh 10.11.100.102
+  else
+    ssh -t nodens.cmteknik.se ssh 10.11.100.102
+  fi
+}
+
+function rubik() {
+  if /sbin/ifconfig | grep 10.0.42 >/dev/null; then
+    ssh 10.0.42.170
+  else
+    ssh rubik.cmip.se
+  fi
+}
+
+function pascal() {
+  if /sbin/ifconfig | grep 10.0.42 >/dev/null; then
+    ssh pascal.local
+  else
+    ssh rubik.cmip.se
+  fi
+}
+
+# SSH aliases
+alias nodens="ssh jonatan@nodens.cmteknik.se"
+alias yig="ssh jonatan@yig.cmteknik.se"
+alias monroe="ssh monroe.local"
+alias dagon="ssh jonatan@dagon.cmteknik.se"
+
+# Default tmux to run in 256 color mode
+alias tmux="tmux -2"
+
+# Handle typos...
+alias cd..="cd .."
+
+# Git shortcuts
+alias gs="git status"
+alias gd="git diff"
+
+# Default options for `less`
+# Quit if one screen: -F
+# Highlight search matches: -g
+# Long prompt: -m
+# Disable termcap init/deinit: -X
+# Don't escape ANSI codes: -R
+set LESS "-FgmXR"
+
+# Use `less` as pager for ag
+alias ag="ag $argv --pager 'less -FgmXR'"
+
+function olle() {
+  # Display character from Stugan. The image is automatically
+  # stretch to fill width of terminal.
+  # FIXME: "math" is from fish. what is the equivalent for zsh?
+  set PADDING $(math \($(tput cols) - 42\) / 2)
+  set S (printf ' %.0s' (seq $PADDING))
+  set U (printf '_%.0s' (seq $PADDING))
+
+  echo
+  echo -s $S "             IIIIIIIIIIIIIIII"
+  echo -s $S " _ _ _      II              II      _ _ _"
+  echo -s $U "I I I I_____I                I_____I I I I$U"
+  echo -s $S "I I I I     I   I--I  I--I   I     I I I I"
+  echo -s $S "I_I_I_I     I   I  I  I  I   I     I_I_I_I"
+  echo -s $S "            I   I  I  I  I   I    "
+  echo -s $S "            I   I *I  I* I   I"
+  echo -s $S "            I   I__I  I__I   I"
+  echo -s $S "            II              II"
+  echo -s $S "             II            II"
+  echo -s $S "              II          II"
+  echo -s $S "               I__      __I"
+  echo -s $S "                  I    I"
+  echo -s $S "                  I    I"
+  echo -s $S "                  I    I"
+  echo -s $S "                  I    I"
+  echo -s $S "                  II  II"
+  echo -s $S "                   I__I"
+  echo
+
+  set -e PADDING
+  set -e S
+  set -e U
+}
+
+if whence starship; then
+  set --append UTILS_FOUND "starship"
+  eval "$(starship init zsh)"
+else
+  set --append UTILS_MISSING "starship"
+fi
+
+# If "exa" is installed, use it instead of "ls"
+# if type -q exa
+#  set --append UTILS_FOUND "exa"
+#  alias ls="exa --git --classify --group-directories-first --header"
+#else
+#  set --append UTILS_MISSING "exa"
+#fi
+
+# Use "bat" instead of "cat" if available
+# In Debian, the command name is "batcat"
+if whence batcat; then
+  alias bat=batcat
+fi
+
+if whence batcat >/dev/null | whence bat >/dev/null; then
+  # Probably not a good idea:
+  # alias cat=bat
+  alias less='bat --paging=always'
+fi
+
+fastfetch
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -9,7 +9,8 @@
 		"nvim": "~/.config/nvim",
 		"_tmux.conf": "~/.tmux.conf",
 		"wezterm.lua": "~/.wezterm.lua",
-		"_gitconfig": "~/.gitconfig"
+		"_gitconfig": "~/.gitconfig",
+		"_zshrc": "~/.zshrc"
 	},
 	"windows": {
 		"wezterm.lua": "~/.wezterm.lua"
