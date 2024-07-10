@@ -35,15 +35,15 @@ export PATH="./node_modules/.bin:$PATH"
 
 # Add Android tools to path
 if [ -d "$HOME/Library/Android" ]; then
-	export PATH="~/Library/Android/sdk/platform-tools:$PATH"
-	export PATH="~/Library/Android/sdk/tools:$PATH"
-	export PATH="~/Library/Android/sdk/emulator:$PATH"
+	export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+	export PATH="$HOME/Library/Android/sdk/tools:$PATH"
+	export PATH="$HOME/Library/Android/sdk/emulator:$PATH"
 fi
 
 if [ -d "$HOME/Android" ]; then
-	export PATH="~/Android/Sdk/platform-tools:$PATH"
-	export PATH="~/Android/Sdk/tools:$PATH"
-	export PATH="~/Android/Sdk/emulator:$PATH"
+	export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
+	export PATH="$HOME/Android/Sdk/tools:$PATH"
+	export PATH="$HOME/Android/Sdk/emulator:$PATH"
 fi
 
 # Add Homebrew in /opt to path
@@ -62,12 +62,12 @@ fi
 
 # Add Rust to path
 if [ -d "$HOME/.cargo" ]; then
-    export PATH="~/.cargo/bin:$PATH"
+    export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 # Add Go to path. $GOPATH is by default $HOME/go.
 if [ -d "$HOME/go" ]; then
-    export PATH="~/go/bin:$PATH"
+    export PATH="$HOME/go/bin:$PATH"
 fi
 
 if [ -d "/opt/go" ]; then
@@ -86,7 +86,7 @@ fi
 
 # Add Flutter to path
 if [ -d "$HOME/flutter" ]; then
-    export PATH="~/flutter/bin:$PATH"
+    export PATH="$HOME/flutter/bin:$PATH"
 fi
 
 # Add Homebrew for Linux to path
@@ -109,7 +109,6 @@ fi
 
 # Check for .rbenv
 if [ -d "$HOME/.rbenv" ]; then
-    # Add ~/.rbenv/bin to path
     export PATH="$HOME/.rbenv/bin:$PATH"
 
     # Enable rbenv
@@ -122,12 +121,12 @@ fi
 # fi
 
 # Add user bin
-if [ -d "~/bin" ]; then
-	export PATH="~/bin:$PATH"
+if [ -d "$HOME/bin" ]; then
+	export PATH="$HOME/bin:$PATH"
 fi
 
-if [ -d "~/.local/bin" ]; then
-  export PATH="~/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # SSH to babbage directly or via nodens
@@ -216,7 +215,7 @@ function olle() {
   set -e U
 }
 
-if whence starship; then
+if whence starship >/dev/null; then
   set --append UTILS_FOUND "starship"
   eval "$(starship init zsh)"
 else
