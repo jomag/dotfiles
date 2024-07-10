@@ -7,7 +7,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Enable mouse in all modes
-vim.opt.mouse = "a"
+vim.opt.mouse = 'a'
 
 -- Ignore case for better searching, unless search criteria includes capital letters
 vim.opt.ignorecase = true
@@ -17,7 +17,7 @@ vim.opt.smartcase = true
 vim.opt.termguicolors = true
 
 -- Enable access to system clipboard
-vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.clipboard = 'unnamed,unnamedplus'
 
 -- Highlight the current cursor line
 vim.opt.cursorline = true
@@ -29,7 +29,7 @@ vim.opt.scrolloff = 4
 -- vim.opt.colorcolumn = "80,100"
 
 -- Ignore some files. DOES NOT SEEM TO WORK!
-vim.opt.wildignore = "*.meta"
+vim.opt.wildignore = '*.meta'
 
 -- Default indentation is two spaces
 vim.opt.tabstop = 4
@@ -37,7 +37,10 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
-vim.diagnostic.config({
-  virtual_text = false,
-  underline = true
-})
+vim.diagnostic.config {
+  -- Enable to show errors "inline"
+  virtual_text = true,
+  underline = true,
+}
+
+-- vim.lsp.set_log_level 'debug'
