@@ -28,34 +28,6 @@ require('lazy').setup({
   { 'folke/which-key.nvim',  opts = {} },
 
   {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
-      {
-        'L3MON4D3/LuaSnip',
-        build = (function()
-          -- Build Step is needed for regex support in snippets
-          -- This step is not supported in many windows environments
-          -- Remove the below condition to re-enable on windows
-          if vim.fn.has 'win32' == 1 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-      },
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-
-      -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
-    },
-  },
-
-  {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -154,21 +126,14 @@ require('lazy').setup({
   -- },
 
   {
-    "folke/tokyonight.nvim",
+    'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
-    opts = {}
+    opts = {},
   },
 
   {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {}
-  },
-
-  {
-    "catppuccin/nvim",
+    'catppuccin/nvim',
     lazy = false,
     priority = 1000,
     opts = {},
@@ -176,7 +141,7 @@ require('lazy').setup({
   },
 
   {
-    "EdenEast/nightfox.nvim",
+    'EdenEast/nightfox.nvim',
     lazy = false,
     priority = 1000,
     opts = {},
@@ -184,7 +149,7 @@ require('lazy').setup({
   },
 
   {
-    "sainnhe/everforest",
+    'sainnhe/everforest',
     lazy = false,
     priority = 1000,
     opts = {},
@@ -198,46 +163,25 @@ require('lazy').setup({
   --   opts = {},
   -- },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
-
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
   {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    --  config = function()
-    --    require("nvim-tree").setup {}
-    --  end,
-  },
-
-  {
-    "christoomey/vim-tmux-navigator",
+    'christoomey/vim-tmux-navigator',
     cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateRight",
-      "TmuxNavigateUp",
-      "TmuxNavigateDown",
-      "TmuxNavigatePrevious"
+      'TmuxNavigateLeft',
+      'TmuxNavigateRight',
+      'TmuxNavigateUp',
+      'TmuxNavigateDown',
+      'TmuxNavigatePrevious',
     },
     keys = {
-      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
-    }
+      { '<c-h>',  '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>',  '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>',  '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>',  '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+    },
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -247,5 +191,5 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
 
   -- Import all dependencies from .config/nvim/lua/plugins
-  { import = "plugins" },
+  { import = 'plugins' },
 }, {})

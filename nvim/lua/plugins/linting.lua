@@ -11,8 +11,9 @@ return {
       -- javascriptreact = { 'eslint' },
       typescriptreact = {},
       -- svelte = { 'eslint' },
-      python = { 'pylint' },
+      python = { 'ruff' },
       deno = { 'deno' },
+      -- toml = { 'taplo' },
     }
 
     -- Setup auto linting on certain events

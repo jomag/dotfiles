@@ -43,4 +43,6 @@ if not not os.getenv("HOMEDRIVE") then
 	config.window_background_opacity = 1.0
 end
 
+config.window_decorations = "RESIZE"
+
 return config

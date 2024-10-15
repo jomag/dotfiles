@@ -22,3 +22,7 @@ vim.keymap.set('n', '∆', ':m +1<CR>==')
 vim.keymap.set('n', '<F8>', function()
   vim.diagnostic.goto_next()
 end)
+
+vim.keymap.set('n', '<leader>dd', function()
+  vim.diagnostic.open_float()
+end)

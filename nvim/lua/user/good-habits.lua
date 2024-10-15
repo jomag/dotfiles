@@ -1,0 +1,3 @@
+-- vim.on_key(function(a, k)
+--   require 'notify' ('Key pressed: ' .. k .. ', ' .. a)
+-- end)

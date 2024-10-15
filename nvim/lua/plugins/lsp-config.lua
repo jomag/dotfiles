@@ -20,21 +20,30 @@ return {
 
       local servers = {
         clangd = {},
-        pyright = {},
+        pyright = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              diagnosticMode = 'openFilesOnly',
+              useLibraryCodeForTypes = true,
+            },
+            venvPath = vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV or vim.env.PYENV_ROOT,
+          },
+        },
         rust_analyzer = {},
-        tsserver = {
+        ts_ls = {
           root_dir = function(filename, bufnr)
-            -- `tsserver` should be disabled in Deno projects, as it conflicts with `denols`
+            -- `ts_ls` should be disabled in Deno projects, as it conflicts with `denols`
             if lspconfig.util.root_pattern('deno.json', 'deno.jsonc')(filename) then
               return nil
             end
             return lspconfig.util.root_pattern 'package.json' (filename)
           end,
 
-          -- For `tsserver` to be disabled in Deno projects
+          -- For `ts_ls` to be disabled in Deno projects
           single_file_support = false,
 
-          filetypes = { 'astro', 'typescript', 'typescriptreact' },
+          filetypes = { 'typescript', 'typescriptreact' },
         },
         html = {},
         denols = {
@@ -59,6 +68,7 @@ return {
         graphql = {},
         emmet_ls = {},
         astro = {},
+        taplo = {},
       }
 
       local function on_attach(foo, bufnr)

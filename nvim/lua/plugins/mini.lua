@@ -8,6 +8,6 @@ return {
     -- `vala` Visually select Around Last (previous) Argument
     require('mini.ai').setup()
 
-    require('mini.statusline').setup()
+    -- require('mini.statusline').setup()
   end,
 }

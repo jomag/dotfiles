@@ -1,18 +1,19 @@
 {
-	"links": {
-		"vimrc": "~/.vimrc",
-		"alacritty": "~/.config/alacritty",
-		"fish/config.fish": "~/.config/fish/config.fish",
-		"fish/functions": "~/.config/fish/functions",
-		"starship.toml": "~/.config/starship.toml",
-		"fastfetch.jsonc": "~/.config/fastfetch/config.jsonc",
-		"nvim": "~/.config/nvim",
-		"_tmux.conf": "~/.tmux.conf",
-		"wezterm.lua": "~/.wezterm.lua",
-		"_gitconfig": "~/.gitconfig",
-		"_zshrc": "~/.zshrc"
-	},
-	"windows": {
-		"wezterm.lua": "~/.wezterm.lua"
-	}
+  "links": {
+    "vimrc": "~/.vimrc",
+    "alacritty": "~/.config/alacritty",
+    "fish/config.fish": "~/.config/fish/config.fish",
+    "fish/functions": "~/.config/fish/functions",
+    "starship.toml": "~/.config/starship.toml",
+    "fastfetch.jsonc": "~/.config/fastfetch/config.jsonc",
+    "nvim": "~/.config/nvim",
+    "_tmux.conf": "~/.tmux.conf",
+    "wezterm.lua": "~/.wezterm.lua",
+    "_gitconfig": "~/.gitconfig",
+    "_zshrc": "~/.zshrc",
+    "aerospace.toml": "~/.aerospace.toml"
+  },
+  "windows": {
+    "wezterm.lua": "~/.wezterm.lua"
+  }
 }
