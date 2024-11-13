@@ -11,7 +11,8 @@
     "wezterm.lua": "~/.wezterm.lua",
     "_gitconfig": "~/.gitconfig",
     "_zshrc": "~/.zshrc",
-    "aerospace.toml": "~/.aerospace.toml"
+    "aerospace.toml": "~/.aerospace.toml",
+    "karabiner.json": "~/.config/karabiner/karabiner.json"
   },
   "windows": {
     "wezterm.lua": "~/.wezterm.lua"
