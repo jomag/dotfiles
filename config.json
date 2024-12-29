@@ -11,8 +11,14 @@
     "wezterm.lua": "~/.wezterm.lua",
     "_gitconfig": "~/.gitconfig",
     "_zshrc": "~/.zshrc",
-    "aerospace.toml": "~/.aerospace.toml",
-    "karabiner.json": "~/.config/karabiner/karabiner.json"
+    "ghostty": "~/.config/ghostty/config"
+  },
+  "macos": {
+    "links": {
+      "aerospace.toml": "~/.aerospace.toml",
+      "karabiner.json": "~/.config/karabiner/karabiner.json",
+      "keyboard-layouts/UsForSwedes.keylayout": "~/Library/Keyboard Layouts/UsForSwedes.keylayout"
+    }
   },
   "windows": {
     "wezterm.lua": "~/.wezterm.lua"

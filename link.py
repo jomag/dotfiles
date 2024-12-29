@@ -4,6 +4,7 @@ import json
 import subprocess
 import sys
 import shutil
+import platform
 
 def green(text):
     return f'\033[32m{text}\033[m'
@@ -27,13 +28,23 @@ def is_wsl():
         pass
     return False
 
+def is_macos():
+    return platform.system() == "Darwin"
 
 dotfiles_path = os.path.dirname(os.path.realpath(__file__))
 
 with open(os.path.join(dotfiles_path, "config.json")) as fp:
     cfg = json.load(fp)
 
-links = cfg["links"]
+links = {}
+
+if "links" in cfg:
+    links.update(cfg["links"])
+
+if is_macos() and "macos" in cfg:
+    macos_cfg = cfg["macos"]
+    if "links" in macos_cfg:
+        links.update(macos_cfg["links"])
 
 for src, dst in links.items():
     src_path = os.path.join(dotfiles_path, src)
