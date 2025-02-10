@@ -5,3 +5,5 @@ font-family = "CaskaydiaMono Nerd Font"
 font-size = 13
 adjust-cell-height = 20%
 theme = "tokyonight"
+window-decoration = false
+
