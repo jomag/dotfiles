@@ -24,7 +24,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 30
+accordion-padding = 10
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -111,39 +111,28 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-# alt-7 = 'workspace 7'
-# alt-8 = 'workspace 8'
-# alt-9 = 'workspace 9'
-# alt-a = 'workspace A'
-alt-b = 'workspace Web'
-alt-c = 'workspace Chat'
-# alt-d = 'workspace D'
-# alt-e = 'workspace E'
-alt-f = 'workspace Figma'
-# alt-g = 'workspace G'
-# alt-i = 'workspace I'
-# alt-m = 'workspace M'
-# alt-n = 'workspace N'
-alt-o = 'workspace Obsidian'
-# alt-p = 'workspace P'
-# alt-q = 'workspace Q'
-# alt-r = 'workspace R'
-# alt-s = 'workspace S'
+f1 = 'workspace Term'
+alt-f1 = 'move-node-to-workspace Term'
 
-alt-t = 'workspace Term'
-# alt-u = 'workspace U'
-# alt-v = 'workspace V'
-# alt-w = 'workspace W'
-# alt-x = 'workspace X'
-# alt-y = 'workspace Y'
-# alt-z = 'workspace Z'
+f2 = 'workspace Web'
+alt-f2 = 'move-node-to-workspace Web'
+
+f3 = 'workspace Obsidian'
+alt-f3 = 'move-node-to-workspace Obsidian'
+
+f4 = 'workspace Chat'
+alt-f4 = 'move-node-to-workspace Chat'
+
+
+cmd-f1 = 'workspace 1'
+cmd-f2 = 'workspace 2'
+cmd-f3 = 'workspace 3'
+cmd-f4 = 'workspace 4'
+
+cmd-alt-f1 = 'move-node-to-workspace 1'
+cmd-alt-f2 = 'move-node-to-workspace 2'
+cmd-alt-f3 = 'move-node-to-workspace 3'
+cmd-alt-f4 = 'move-node-to-workspace 4'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -185,7 +174,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 # My custom bindings
-alt-enter = 'fullscreen'
+alt-enter = 'fullscreen --no-outer-gaps'
 alt-shift-enter = 'macos-native-fullscreen'
 
 # 'service' binding mode declaration.
@@ -217,6 +206,10 @@ run = 'move-node-to-workspace Web'
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace Term'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace Term'
 
 [[on-window-detected]]
