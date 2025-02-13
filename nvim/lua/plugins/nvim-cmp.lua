@@ -16,9 +16,10 @@ return {
     },
     'saadparwaiz1/cmp_luasnip',
 
-    -- Adds LSP completion capabilities
+    -- Adds completion sources
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
 
     -- Adds a number of user-friendly snippets
     'rafamadriz/friendly-snippets',
@@ -35,6 +36,10 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
       completion = {
         completeopt = 'menu,menuone,noinsert',
       },
@@ -45,15 +50,16 @@ return {
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
         -- Other confirmation options:
+        ['<Tab>'] = cmp.mapping.confirm { select = true },
         -- ['<C-y>'] = cmp.mapping.confirm { select=true},
         -- ['<CR>'] = cmp.mapping.confirm { select = true },
-        ['<Tab>'] = cmp.mapping.select_next_item(),
+        -- ['<Tab>'] = cmp.mapping.select_next_item(),
         -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
         --  completions whenever it has completion options available.
-        ['<C-Space>'] = cmp.mapping.complete {},
+        -- ['<C-Space>'] = cmp.mapping.complete(),
 
         -- Think of <c-l> as moving to the right of your snippet expansion.
         --  So if you have a snippet that's like:
@@ -78,6 +84,7 @@ return {
         { name = 'lazydev', group_index = 0 },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'buffer' },
         { name = 'path' },
       },
     }
