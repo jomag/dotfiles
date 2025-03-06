@@ -30,7 +30,20 @@ return {
             venvPath = vim.env.VIRTUAL_ENV and vim.env.VIRTUAL_ENV or vim.env.PYENV_ROOT,
           },
         },
-        rust_analyzer = {},
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                target = "x86_64-pc-windows-gnu"
+              },
+
+              checkOnSave = {
+                command = "clippy",
+                extraArgs = { "--target", "x86_64-pc-windows-gnu" }
+              },
+            }
+          }
+        },
         ts_ls = {
           root_dir = function(filename, bufnr)
             -- `ts_ls` should be disabled in Deno projects, as it conflicts with `denols`
