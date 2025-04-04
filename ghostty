@@ -1,7 +1,8 @@
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
-font-family = "CaskaydiaMono Nerd Font"
+font-family = "Hack Nerd Font"
+# font-family = "CaskaydiaMono Nerd Font"
 font-size = 13
 adjust-cell-height = 20%
 theme = "tokyonight"
