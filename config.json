@@ -11,7 +11,8 @@
     "wezterm.lua": "~/.wezterm.lua",
     "_gitconfig": "~/.gitconfig",
     "_zshrc": "~/.zshrc",
-    "ghostty": "~/.config/ghostty/config"
+    "ghostty": "~/.config/ghostty/config",
+    "mc/skins/norton.ini": "~/.local/share/mc/skins/norton.ini"
   },
   "macos": {
     "links": {
