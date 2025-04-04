@@ -1,3 +1,5 @@
+local configure_rust_for_win32_cross_compilation = false
+
 return {
   {
     'williamboman/mason.nvim',
@@ -32,16 +34,22 @@ return {
         },
         rust_analyzer = {
           settings = {
-            ["rust-analyzer"] = {
-              cargo = {
-                target = "x86_64-pc-windows-gnu"
-              },
+            ["rust-analyzer"] = (function()
+              if configure_rust_for_win32_cross_compilation then
+                return {
+                  cargo = {
+                    target = "x86_64-pc-windows-gnu"
+                  },
 
-              checkOnSave = {
-                command = "clippy",
-                extraArgs = { "--target", "x86_64-pc-windows-gnu" }
-              },
-            }
+                  checkOnSave = {
+                    command = "clippy",
+                    extraArgs = { "--target", "x86_64-pc-windows-gnu" }
+                  },
+                }
+              else
+                return {}
+              end
+            end)(),
           }
         },
         ts_ls = {
@@ -56,7 +64,7 @@ return {
           -- For `ts_ls` to be disabled in Deno projects
           single_file_support = false,
 
-          filetypes = { 'typescript', 'typescriptreact' },
+          filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
         },
         html = {},
         denols = {
