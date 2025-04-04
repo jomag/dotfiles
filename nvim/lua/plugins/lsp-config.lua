@@ -65,7 +65,17 @@ return {
           },
           root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
         },
-        lua_ls = {},
+        lua_ls = {
+          Lua = {
+            workspace = {
+              checkThirdParty = false,
+              telemetry = { enable = false },
+              library = {
+                "${3rd}/love2d/library"
+              }
+            }
+          }
+        },
         cssls = {
           settings = {
             css = {
