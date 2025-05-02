@@ -1,4 +1,4 @@
-# Place a copy of this config to ~/.aerospace.toml
+# Place a copy of this confg to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
 # It's not necessary to copy all keys to your config.
@@ -95,6 +95,10 @@ outer.right = 0
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
+# Enter "resize" mode
+alt-r = 'mode resize'
+alt-shift-semicolon = 'mode service'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left'
 alt-j = 'focus down'
@@ -111,71 +115,45 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-f1 = 'workspace Term'
-alt-f1 = 'move-node-to-workspace Term'
+alt-1 = 'workspace Term'
+alt-2 = 'workspace Web'
+alt-3 = 'workspace Obs'
+alt-4 = 'workspace Chat'
+alt-5 = 'workspace 1'
+alt-6 = 'workspace 2'
+alt-7 = 'workspace 3'
+alt-8 = 'workspace 4'
 
-f2 = 'workspace Web'
-alt-f2 = 'move-node-to-workspace Web'
-
-f3 = 'workspace Obsidian'
-alt-f3 = 'move-node-to-workspace Obsidian'
-
-f4 = 'workspace Chat'
-alt-f4 = 'move-node-to-workspace Chat'
-
-
-cmd-f1 = 'workspace 1'
-cmd-f2 = 'workspace 2'
-cmd-f3 = 'workspace 3'
-cmd-f4 = 'workspace 4'
-
-cmd-alt-f1 = 'move-node-to-workspace 1'
-cmd-alt-f2 = 'move-node-to-workspace 2'
-cmd-alt-f3 = 'move-node-to-workspace 3'
-cmd-alt-f4 = 'move-node-to-workspace 4'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-# alt-shift-7 = 'move-node-to-workspace 7'
-# alt-shift-8 = 'move-node-to-workspace 8'
-# alt-shift-9 = 'move-node-to-workspace 9'
-# alt-shift-a = 'move-node-to-workspace A'
-alt-shift-b = 'move-node-to-workspace Web'
-alt-shift-c = 'move-node-to-workspace Chat'
-# alt-shift-d = 'move-node-to-workspace D'
-# alt-shift-e = 'move-node-to-workspace E'
-# alt-shift-f = 'move-node-to-workspace F'
-# alt-shift-g = 'move-node-to-workspace G'
-# alt-shift-i = 'move-node-to-workspace I'
-# alt-shift-m = 'move-node-to-workspace M'
-# alt-shift-n = 'move-node-to-workspace N'
-# alt-shift-o = 'move-node-to-workspace O'
-# alt-shift-p = 'move-node-to-workspace P'
-# alt-shift-q = 'move-node-to-workspace Q'
-# alt-shift-r = 'move-node-to-workspace R'
-# alt-shift-s = 'move-node-to-workspace S'
-alt-shift-t = 'move-node-to-workspace Term'
-# alt-shift-u = 'move-node-to-workspace U'
-# alt-shift-v = 'move-node-to-workspace V'
-# alt-shift-w = 'move-node-to-workspace W'
-# alt-shift-x = 'move-node-to-workspace X'
-# alt-shift-y = 'move-node-to-workspace Y'
-# alt-shift-z = 'move-node-to-workspace Z'
+ctrl-alt-1 = 'move-node-to-workspace Term'
+ctrl-alt-2 = 'move-node-to-workspace Web'
+ctrl-alt-3 = 'move-node-to-workspace Obs'
+ctrl-alt-4 = 'move-node-to-workspace Chat'
+ctrl-alt-5 = 'move-node-to-workspace 1'
+ctrl-alt-6 = 'move-node-to-workspace 2'
+ctrl-alt-7 = 'move-node-to-workspace 3'
+ctrl-alt-8 = 'move-node-to-workspace 4'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
-
 # My custom bindings
 alt-enter = 'fullscreen --no-outer-gaps'
 alt-shift-enter = 'macos-native-fullscreen'
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+w = 'join-with up'
+a = 'join-with left'
+s = 'join-with down'
+d = 'join-with right'
+r = ['reload-config', 'mode main']
+enter = 'mode main'
+esc = 'mode main'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
