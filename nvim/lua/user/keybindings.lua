@@ -26,3 +26,7 @@ end)
 vim.keymap.set('n', '<leader>dd', function()
   vim.diagnostic.open_float()
 end)
+
+-- Alternate between the two most recently used buffers
+-- Other alternatives to consider: `:bnext`
+vim.api.nvim_set_keymap('n', '<Leader><Tab>', ':b#<CR>', { noremap = true, silent = true })

@@ -41,6 +41,10 @@ vim.diagnostic.config {
   -- Enable to show errors "inline"
   virtual_text = true,
   underline = true,
+
+  -- Multi line diagnostics. Too noisy!
+  virtual_lines = false,
+  -- virtual_lines = { current_line = true },
 }
 
 -- Auto refresh buffers when they change

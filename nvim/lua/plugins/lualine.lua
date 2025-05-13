@@ -4,6 +4,9 @@ return {
 	config = function()
 		require('lualine').setup {
 			options = {
+				-- If true, a single status line is used for all buffers
+				globalstatus = false,
+
 				icons_enabled = true,
 				theme = 'auto',
 				component_separators = { left = '', right = '' },
@@ -14,7 +17,6 @@ return {
 				},
 				ignore_focus = {},
 				always_divide_middle = true,
-				globalstatus = false,
 				refresh = {
 					statusline = 100,
 					tabline = 100,
@@ -23,7 +25,8 @@ return {
 			},
 			sections = {
 				lualine_a = { 'mode' },
-				lualine_b = { 'branch', 'diff', 'diagnostics' },
+				lualine_b = {},
+				-- lualine_b = { 'branch', 'diff', 'diagnostics' },
 				-- Path: 0 = filename only, 1 = relative path, 2-3 = abs path, 4 = filename and parent directory
 				lualine_c = { { 'filename', path = 4 } },
 				lualine_x = { 'encoding', 'fileformat', 'filetype' },
