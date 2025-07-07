@@ -68,7 +68,7 @@ for src, dst in links.items():
 
 if is_wsl():
     print(green("\nWindows Subsystem for Linux (WSL) detected"))
-    res = subprocess.run('cmd.exe /c echo %HOMEDRIVE%%HOMEPATH%'.split(), capture_output=True)
+    res = subprocess.run('/mnt/c/windows/system32/cmd.exe /c echo %HOMEDRIVE%%HOMEPATH%'.split(), capture_output=True)
     homedir = res.stdout.decode().strip()
     print("User home directory:", white(homedir))
     if homedir[1] != ':':

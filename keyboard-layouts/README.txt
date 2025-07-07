@@ -1,3 +1,7 @@
+
+MacOS
+-----
+
 This directory contains .keylayout's created using Ukelele.
 
 UsForSwedes.keylayout is my preferred layout, which is a regular
@@ -13,4 +17,10 @@ It may not be possible to remove all previous layouts from the list
 of input sources. Here's a discussion about how it can be done:
 
 https://superuser.com/questions/712306
+
+Windows
+-------
+
+The equivalent configuration for Windows is in the AutoHotKey script
+UsForSwedes.ahk. Install AutoHotKey and double click the script file.
 

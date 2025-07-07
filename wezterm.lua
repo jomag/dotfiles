@@ -11,11 +11,12 @@ config.color_scheme = "Tokyo Night"
 -- Goes well with the Catpuccin Neovim theme
 -- config.color_scheme = "Catppuccin Mocha"
 
-config.font = wezterm.font("CaskaydiaMono Nerd Font")
+-- config.font = wezterm.font("CaskaydiaMono Nerd Font")
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font = wezterm.font("Hack Nerd Font Mono")
 
-config.font_size = 13
-config.line_height = 1.2
+config.font_size = 12
+-- config.line_height = 1.2
 
 -- config.colors = {
 -- 	background = "black",
@@ -38,11 +39,15 @@ config.keys = {
 
 -- Overrides for windows
 if not not os.getenv("HOMEDRIVE") then
-	config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
-	config.font_size = 9
+	-- config.font = wezterm.font("CaskaydiaMono Nerd Font Mono")
+	config.font = wezterm.font("Hack Nerd Font Mono")
+	config.font_size = 10
 	config.window_background_opacity = 1.0
 end
 
-config.window_decorations = "RESIZE"
+-- config.window_decorations = "RESIZE"
+--
+
+config.automatically_reload_config = true
 
 return config

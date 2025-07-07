@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip
 unzip CascadiaMono.zip -d Cascadia
+unzip Hack.zip -d Hack
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   FONTDIR=~/Library/Fonts/
@@ -14,3 +16,5 @@ else
 fi
 
 echo cp Cascadia/*.ttf $FONTDIR
+echo cp Hack/*.ttf $FONTDIR
+
