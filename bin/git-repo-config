@@ -1,0 +1,35 @@
+#!/bin/bash
+
+DEFAULT_NAME="Jonatan Magnusson"
+DEFAULT_EMAIL="jonatan.magnusson@gmail.com"
+
+# Check that we are in a Git repository
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "Current directory is not a Git repository!"
+  exit 1
+fi
+
+GIT_NAME=`git config user.name`
+GIT_EMAIL=`git config user.email`
+
+FALLBACK_NAME="$GIT_NAME"
+[ -z "$FALLBACK_NAME" ] && FALLBACK_NAME="$DEFAULT_NAME"
+
+FALLBACK_EMAIL="$GIT_EMAIL"
+[ -z "$FALLBACK_EMAIL" ] && FALLBACK_EMAIL="$DEFAULT_EMAIL"
+
+read -p "Your name for this repo [$FALLBACK_NAME]: " NAME
+NAME=${NAME:-$FALLBACK_NAME}
+
+read -p "Your email for this repo [$FALLBACK_EMAIL]: " EMAIL
+EMAIL=${EMAIL:-$FALLBACK_EMAIL}
+
+echo
+echo "Configuring repository:"
+echo " - Name:  '$NAME'"
+echo " - Email: '$EMAIL'"
+
+git config user.name "$NAME"
+git config user.email "$EMAIL"
+
+
