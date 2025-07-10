@@ -43,9 +43,9 @@ if not not os.getenv("HOMEDRIVE") then
 	config.font = wezterm.font("Hack Nerd Font Mono")
 	config.font_size = 10
 	config.window_background_opacity = 1.0
+	config.window_decorations = "RESIZE"
 end
 
--- config.window_decorations = "RESIZE"
 --
 
 config.automatically_reload_config = true
