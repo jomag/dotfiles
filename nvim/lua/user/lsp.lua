@@ -15,13 +15,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, '[C]ode [A]ction')
 
     -- "Go to" keybindings
-    bind('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-    bind('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    bind('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-    bind('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-    bind('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-    bind('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-    bind('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+    -- bind('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+    -- bind('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+    -- bind('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+    -- bind('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+    -- bind('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+    -- bind('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+    -- bind('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
     -- Show documentation for the item under the cursor
     bind('K', vim.lsp.buf.hover, 'Hover Documentation')
