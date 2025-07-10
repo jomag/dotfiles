@@ -239,7 +239,7 @@ function alt_fish_greeting
         fortune -a
       end
     else
-      echo "No screenfetch, no fortune..."
+      olle
     end
   end
 end
