@@ -1,5 +1,7 @@
 vim.filetype.add({
   extension = {
-    ejs = "html"
+    ejs = "html",
+    eta = "html",
+    hbs = "html",
   }
 })
