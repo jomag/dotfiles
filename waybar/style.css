@@ -1,8 +1,48 @@
-/*
-* Variant: Rosé Pine Moon
-* Maintainer: DankChoir
-*/
-@import url("file:///etc/xdg/waybar/style.css");
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: #111; */
+  /* background-color: transparent; */
+  color: #ffa133;
+}
+
+#workspaces {
+  background-color: #222;
+  margin: 2px;
+  padding: 0px 8px;
+  border-radius: 8px;
+}
+
+#workspaces button {
+  color: #80511a;
+}
+
+#workspaces button.active {
+  color: #ffa133;
+}
+
+button {
+  padding: 0;
+}
+
+#battery,
+#cpu,
+#bluetooth,
+#pulseaudio,
+#network
+{
+  border-radius: 8px;
+  background-color: #222;
+  padding: 0px 16px;
+  font-size: 14px;
+  margin: 2px;
+}
+
+#clock {
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin: 2px;
+  background-color: #222;
+}
 
 @define-color base            #232136;
 @define-color surface         #2a273f;

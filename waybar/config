@@ -1,8 +1,8 @@
 {
   "layer": "top",
     "position": "top",
-    "spacing": 0,
-    "height": 24,
+    "spacing": 12,
+    "height": 30,
 
     "modules-left": [
       "hyprland/workspaces"
@@ -13,7 +13,6 @@
     ],
 
     "modules-right": [
-      "custom/dropbox",
       "bluetooth",
       "network",
       "pulseaudio",
@@ -27,15 +26,15 @@
       "format": "{icon}",
       "format-icons": {
         "default": "",
-        "1": "1",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "5": "5",
-        "6": "6",
-        "7": "7",
-        "8": "8",
-        "9": "9",
+        // "1": "1",
+        // "2": "2",
+        // "3": "3",
+        // "4": "4",
+        // "5": "5",
+        // "6": "6",
+        // "7": "7",
+        // "8": "8",
+        // "9": "9",
         "active": "󱓻"
       },
       "persistent-workspaces": {
@@ -50,19 +49,19 @@
     "cpu": {
       "interval": 5,
       "format": "󰍛",
-      "on-click": "alacritty -e btop"
+      "on-click": "ghostty -e btop"
     },
 
     "clock": {
-      "format": "{:%A %H:%M}",
-      "format-alt": "{:%d %B W%V %Y}",
+      "format-alt": "{:%A %H:%M}",
+      "format": "{:%H:%M, %d %B W%V %Y}",
       "tooltip": false
     },
 
     "network": {
       "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
       "format" : "{icon}",
-      "format-wifi" : "{icon}",
+      "format-wifi" : "{essid} {icon}",
       "format-ethernet" : "󰀂",
       "format-disconnected" : "󰖪",
       "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
@@ -70,13 +69,14 @@
       "tooltip-format-disconnected": "Disconnected",
       "interval": 3,
       "nospacing": 1,
-      "on-click": "alacritty -e iwctl"
+      "on-click": "ghostty -e iwctl"
     },
+
     "battery": {
       "interval": 5,
       "format": "{capacity}% {icon}",
-      "format-discharging": "{icon}",
-      "format-charging":    "{icon}",
+      "format-discharging": "{capacity}% {icon}",
+      "format-charging":    "{capacity}% {icon}",
       "format-plugged":     "",
         "format-icons": {
           "charging": [
@@ -95,6 +95,7 @@
         "critical": 10
       }
     },
+
     "bluetooth": {
       "format": "",
       "format-disabled": "󰂲",
@@ -102,6 +103,7 @@
       "tooltip-format": "Devices connected: {num_connections}",
       "on-click": "GTK_THEME=Adwaita-dark blueberry"
     },
+
     "pulseaudio": {
       "format": "",
       "format-muted": "󰝟",
@@ -111,6 +113,7 @@
       "on-click-right": "pamixer -t",
       "ignored-sinks": ["Easy Effects Sink"]
     },
+
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}",
