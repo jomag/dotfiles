@@ -14,8 +14,13 @@
     "ghostty": "~/.config/ghostty/config",
     "mc/skins/norton.ini": "~/.local/share/mc/skins/norton.ini",
     "bin/git-repo-config": "~/bin/git-repo-config",
+    "bin/battery-warning.py": "~/bin/battery-warning.py",
+    "bin/update-hypridle-power.sh": "~/bin/update-hypridle-power.sh",
     "hyprland.conf": "~/.config/hypr/hyprland.conf",
-    "waybar": "~/.config/waybar"
+    "hypridle/hypridle-battery.conf": "~/.config/hypr/hypridle-battery.conf",
+    "hypridle/hypridle-mains.conf": "~/.config/hypr/hypridle-mains.conf",
+    "waybar": "~/.config/waybar",
+    "mako": "~/.config/mako/config"
   },
   "macos": {
     "links": {
