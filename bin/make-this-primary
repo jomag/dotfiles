@@ -10,10 +10,10 @@ echo "Secondary monitor: $SECONDARY"
 
 # Workspace 1-8 on primary monitor
 # Workspace 9-10 on secondary monitor
-for ws in {1..8}; do
+for ws in {1..6}; do
   hyprctl dispatch moveworkspacetomonitor "$ws" $PRIMARY;
 done
 
-for ws in 9 10; do
+for ws in 10; do
   hyprctl dispatch moveworkspacetomonitor "$ws" $SECONDARY;
 done
