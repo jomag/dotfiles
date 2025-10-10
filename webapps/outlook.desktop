@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Outlook Webapp
+Comment=Start Outlook in a special purpose browser instance
+Icon=outlook
+Terminal=false
+Type=Application
+Categories=
+Exec=sh -c 'chromium --app="https://outlook.office.com/mail" --user-data-dir="$HOME/.webapps/outlook"'

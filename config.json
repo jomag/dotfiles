@@ -21,7 +21,9 @@
     "hypridle/hypridle-battery.conf": "~/.config/hypr/hypridle-battery.conf",
     "hypridle/hypridle-mains.conf": "~/.config/hypr/hypridle-mains.conf",
     "waybar": "~/.config/waybar",
-    "mako": "~/.config/mako/config"
+    "mako": "~/.config/mako/config",
+    "webapps/teams.desktop": "~/.local/share/applications/teams.desktop",
+    "webapps/outlook.desktop": "~/.local/share/applications/outlook.desktop"
   },
   "macos": {
     "links": {
