@@ -7,4 +7,5 @@ font-size = 11
 adjust-cell-height = 20%
 theme = "Rose Pine"
 window-decoration = false
+app-notifications = no-clipboard-copy
 
