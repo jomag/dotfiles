@@ -25,7 +25,8 @@
     "waybar": "~/.config/waybar",
     "mako": "~/.config/mako/config",
     "webapps/teams.desktop": "~/.local/share/applications/teams.desktop",
-    "webapps/outlook.desktop": "~/.local/share/applications/outlook.desktop"
+    "webapps/outlook.desktop": "~/.local/share/applications/outlook.desktop",
+    "webapps/mail.desktop": "~/.local/share/applications/mail.desktop"
   },
   "macos": {
     "links": {
