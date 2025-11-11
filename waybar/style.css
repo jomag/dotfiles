@@ -20,6 +20,14 @@ window#waybar {
   color: #ffa133;
 }
 
+#workspaces button.visible {
+  color: #ffa133;
+}
+
+#workspaces button.focused {
+  color: #ffa133;
+}
+
 button {
   padding: 0;
 }
@@ -28,8 +36,7 @@ button {
 #cpu,
 #bluetooth,
 #pulseaudio,
-#network
-{
+#network {
   border-radius: 8px;
   background-color: #222;
   padding: 0px 16px;
