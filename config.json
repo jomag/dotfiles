@@ -19,6 +19,7 @@
     "bin/make-this-primary": "~/bin/make-this-primary",
     "hyprland.conf": "~/.config/hypr/hyprland.conf",
     "hyprpaper.conf": "~/.config/hypr/hyprpaper.conf",
+    "hyprlock.conf": "~/.config/hypr/hyprlock.conf",
     "hypridle/hypridle-battery.conf": "~/.config/hypr/hypridle-battery.conf",
     "hypridle/hypridle-mains.conf": "~/.config/hypr/hypridle-mains.conf",
     "waybar": "~/.config/waybar",
