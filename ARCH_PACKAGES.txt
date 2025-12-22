@@ -1,0 +1,8 @@
+Arch packages that should always be installed
+---------------------------------------------
+
+Long term, this should be automated, but until then, here's
+what I typically install on a clean system:
+
+usbutils (lsusb command)
+
