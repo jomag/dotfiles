@@ -6,23 +6,19 @@ vim.keymap.set('n', '<A-j>', ':m +1<CR>==')
 vim.keymap.set('n', '˚', ':m -2<CR>==')
 vim.keymap.set('n', '∆', ':m +1<CR>==')
 
--- Keybindings for Trouble (defaults)
--- vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle("diagnostics") end)
--- vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
--- vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
--- vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
--- vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
--- vim.keymap.set("n", "<leader>xn", function() require("trouble").next({ skip_groups = true, jump = true }) end)
--- vim.keymap.set("n", "<leader>xp", function() require("trouble").previous({ skip_groups = true, jump = true }) end)
--- vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+-- Go to next/previous diagnostics entry (warning, error, ...)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 
--- Keybindings for Trouble, my customized versions
--- vim.keymap.set("n", "<F8>", function() require("trouble").next({ mode = "diagnostics", skip_groups = true, jump = true }) end)
--- vim.keymap.set("n", "<S-F8>", function() require("trouble").previous({ skip_groups = true, jump = true }) end)
-vim.keymap.set('n', '<F8>', function()
-  vim.diagnostic.goto_next()
+-- Go to next/previous *error*
+vim.keymap.set("n", "]e", function ()
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+end)
+vim.keymap.set("n", "[e", function ()
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end)
 
+-- Show extra diagnostics for the error under cursor
 vim.keymap.set('n', '<leader>dd', function()
   vim.diagnostic.open_float()
 end)
