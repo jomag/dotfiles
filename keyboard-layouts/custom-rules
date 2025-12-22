@@ -1,0 +1,3 @@
+! option = symbols
+  custom:super_sv = +custom(super_sv)
+! include %S/evdev

@@ -24,3 +24,24 @@ Windows
 The equivalent configuration for Windows is in the AutoHotKey script
 UsForSwedes.ahk. Install AutoHotKey and double click the script file.
 
+Linux
+-----
+
+I tried using wtype and keyd, but neither works well, and it's inconsistent,
+both between identical computers and depending on app.
+
+Instead, I've added some keyboard layout options.
+
+Some tips:
+
+When debugging layout issues, run this command to check for errors in the layout:
+
+```
+xbkcli compile-keymap --rules evdev --model pc105 --layout us --options custom:super_sv
+```
+
+To find what key id's to use (ie `<AC11>`), use `xkbcli` (Wayland):
+
+```
+xkbcli interactive-wayland
+```
