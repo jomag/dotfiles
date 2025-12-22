@@ -21,7 +21,7 @@ return {
         graphql = { 'prettier' },
         liquid = { 'prettier' },
         lua = { 'stylua' },
-        python = { 'isort', 'black' },
+        python = { 'ruff_format' }, -- alternatives: isort, black
         astro = { 'prettier', 'prettier-plugin-astro' },
       },
 
