@@ -10,9 +10,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     bind('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-    bind('<leader>ca', function()
-      vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
-    end, '[C]ode [A]ction')
+
+    vim.keymap.set({ 'x', 'n', }, '<leader>ca', function ()
+      vim.lsp.buf.code_action({
+        context = {
+          -- only = { 'quickfix', 'refactor', 'source '}
+        }
+      })
+    end, { desc = '[C]ode [A]ction'})
 
     -- "Go to" keybindings
     -- bind('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
