@@ -1,35 +1,46 @@
+@define-color bitops-orange #ffa133;
+
+@define-color base-bg #000;
+@define-color base-fg #eef;
+@define-color button-bg #222;
+@define-color button-fg #bbc;
+@define-color active-button-bg #bbc;
+@define-color active-button-fg #222;
+
 window#waybar {
-  /* background-color: rgba(0, 0, 0, 0.2); */
-  background-color: #080808;
-  /* background-color: transparent; */
-  color: #ffa133;
-}
-
-#workspaces {
-  background-color: #222;
-  margin: 0px;
-  padding: 0px 0px;
-  border-radius: 0px;
-}
-
-#workspaces button {
-  color: #80511a;
-}
-
-#workspaces button.active {
-  color: #ffa133;
-}
-
-#workspaces button.visible {
-  color: #ffa133;
-}
-
-#workspaces button.focused {
-  color: #ffa133;
+  background-color: @base-bg;
+  color: @base-fg;
 }
 
 button {
+  background-color: @button-bg;
+  color: @button-fg;
+  border-radius: 2px;
   padding: 0;
+}
+
+#workspaces {
+  background-color: @base-bg;
+  border-radius: 0px;
+  padding: 1px;
+}
+
+#workspaces button {
+  margin: 0px 1px 0px 0px;
+  padding: 1px 6px;
+}
+
+#workspaces button.active {
+  background-color: @active-button-bg;
+  color: @active-button-fg;
+}
+
+#workspaces button.visible {
+  color: @active-button-fg;
+}
+
+#workspaces button.focused {
+  color: @active-button-fg;
 }
 
 #battery,
@@ -37,18 +48,16 @@ button {
 #bluetooth,
 #pulseaudio,
 #network {
-  border-radius: 0px;
-  background-color: #222;
+  border-radius: 2px;
+  background-color: @button-bg;
+  color: @button-fg;
   padding: 0px 12px;
   font-size: 14px;
   margin: 0px;
 }
 
 #clock {
-  border-radius: 0px;
-  padding: 4px 8px;
-  margin: 0px;
-  background-color: #222;
+  color: @button-fg;
 }
 
 @define-color base            #232136;

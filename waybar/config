@@ -5,8 +5,8 @@
     "height": 30,
 
     "modules-left": [
-      // "hyprland/workspaces"
-      "sway/workspaces"
+      "hyprland/workspaces"
+      // "sway/workspaces"
     ],
 
     "modules-center": [
@@ -25,7 +25,8 @@
 
     "hyprland/workspaces": {
       "all-outputs": false,
-      "format": "{icon} {id}   ",
+      /* "format": "{icon} {id}   ", */
+      "format": "{id}",
       "format-icons": {
         "default": "",
         "active": "󱓻"
