@@ -28,7 +28,11 @@
     "webapps/outlook.desktop": "~/.local/share/applications/outlook.desktop",
     "webapps/mail.desktop": "~/.local/share/applications/mail.desktop",
     "keyboard-layouts/custom-layout": "~/.config/xkb/symbols/custom",
-    "keyboard-layouts/custom-rules": "~/.config/xkb/rules/evdev"
+    "keyboard-layouts/custom-rules": "~/.config/xkb/rules/evdev",
+    "sway/config": "~/.config/sway/config",
+    "webapps/mail.desktop": "~/.local/share/applications/mail.desktop",
+    "webapps/outlook.desktop": "~/.local/share/applications/outlook.desktop",
+    "webapps/teams.desktop": "~/.local/share/applications/teams.desktop"
   },
   "macos": {
     "links": {
