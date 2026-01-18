@@ -1,15 +1,15 @@
 window#waybar {
-  background-color: rgba(0, 0, 0, 0.2);
-  /* background-color: #111; */
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  background-color: #080808;
   /* background-color: transparent; */
   color: #ffa133;
 }
 
 #workspaces {
   background-color: #222;
-  margin: 2px;
-  padding: 0px 8px;
-  border-radius: 8px;
+  margin: 0px;
+  padding: 0px 0px;
+  border-radius: 0px;
 }
 
 #workspaces button {
@@ -37,17 +37,17 @@ button {
 #bluetooth,
 #pulseaudio,
 #network {
-  border-radius: 8px;
+  border-radius: 0px;
   background-color: #222;
-  padding: 0px 16px;
+  padding: 0px 12px;
   font-size: 14px;
-  margin: 2px;
+  margin: 0px;
 }
 
 #clock {
-  border-radius: 8px;
+  border-radius: 0px;
   padding: 4px 8px;
-  margin: 2px;
+  margin: 0px;
   background-color: #222;
 }
 
