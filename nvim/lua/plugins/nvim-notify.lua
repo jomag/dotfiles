@@ -1,9 +1,12 @@
 -- Fancy notification bubbles
 -- This configuration is heavily inspired by LazyVim:
 -- https://www.lazyvim.org/plugins/ui
+--
+-- I've disabled this now, and using "Snacks Notifier instead.
 return {
   {
     'rcarriga/nvim-notify',
+    enabled = false,
     keys = {
       {
         '<leader>un',
