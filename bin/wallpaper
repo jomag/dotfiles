@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+set -euo pipefail
+
+WALLPAPERS_DIR="$HOME/wallpapers/"
+TRANSITION_TYPE=random
+
+# Start daemon if not already running
+if pgrep -x swww-daemon >/dev/null 2>&1; then
+  echo "swww-daemon already running."
+else
+  echo "swww-daemon not running. starting it..."
+  swww-daemon &
+  sleep 1
+fi
+
+# Pick a single, random wallpaper image
+PICK=$(find "$WALLPAPERS_DIR" -type f | shuf -n 1)
+
+echo "Pick: $PICK"
+swww img "$PICK" --transition-type $TRANSITION_TYPE --transition-duration 1.2
+
