@@ -61,8 +61,13 @@ for src, dst in links.items():
             print(f"{pre}: " + red(f"target path already exists"))
         else:
             os.makedirs(os.path.dirname(dst_path), exist_ok=True)
-            os.symlink(src_path, dst_path)
-            print(f"{pre}: " + green("linked"))
+            try:
+                os.symlink(src_path, dst_path)
+            except PermissionError:
+                print(f"{pre}: " + red("permission denied"))
+                print(yellow(f" -> Link manually: ln -s {src_path} {dst_path}"))
+            else:
+                print(f"{pre}: " + green("linked"))
     else:
         print(f"{pre}: " + red("source not found"))
 

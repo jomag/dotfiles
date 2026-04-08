@@ -17,6 +17,8 @@
     "bin/battery-warning.py": "~/bin/battery-warning.py",
     "bin/update-hypridle-power.sh": "~/bin/update-hypridle-power.sh",
     "bin/make-this-primary": "~/bin/make-this-primary",
+    "bin/wallpaper": "~/bin/wallpaper",
+    "bin/monitor-layout-sway.py": "~/bin/monitor-layout-sway",
     "hyprland.conf": "~/.config/hypr/hyprland.conf",
     "hyprpaper.conf": "~/.config/hypr/hyprpaper.conf",
     "hyprlock.conf": "~/.config/hypr/hyprlock.conf",
@@ -32,7 +34,10 @@
     "sway/config": "~/.config/sway/config",
     "webapps/mail.desktop": "~/.local/share/applications/mail.desktop",
     "webapps/outlook.desktop": "~/.local/share/applications/outlook.desktop",
-    "webapps/teams.desktop": "~/.local/share/applications/teams.desktop"
+    "webapps/teams.desktop": "~/.local/share/applications/teams.desktop",
+    "webapps/obsidian.desktop": "~/.local/share/applications/obsidian.desktop",
+    "environment.d/10-path.conf": "~/.config/environment.d/10-path.conf",
+    "keyboard-layouts/us_for_swedes": "~/.config/xkb/symbols/us_for_swedes"
   },
   "macos": {
     "links": {
