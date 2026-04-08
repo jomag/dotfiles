@@ -22,7 +22,7 @@ alias m='make; and say OK; or say Misslyckades'
 # alias n="ninja"
 
 # Alias: "v" to show current week
-alias v="date +'Vecka %-W'"
+alias v="date +'Vecka %-V'"
 
 # Alias: "n" to nvim
 alias n=nvim
@@ -33,6 +33,11 @@ set PATH /usr/local/bin $PATH
 
 # Add the local node binaries to path
 set PATH ./node_modules/.bin $PATH
+
+# Setup nvm to use LTS by default
+if type -q nvm
+  nvm use lts --silent
+end
 
 # Add Android tools to path
 if test -d $HOME/Library/Android
