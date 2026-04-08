@@ -1,0 +1,12 @@
+default partial alphanumeric_keys
+
+xkb_symbols "basic" {
+    include "us(basic)"
+    include "level3(ralt_switch)"
+    name[Group1] = "US with Swedish on Level3";
+
+    key <AC10> { type = "FOUR_LEVEL", [ semicolon, colon, odiaeresis, Odiaeresis ] };
+    key <AC11> { type = "FOUR_LEVEL", [ apostrophe, quotedbl, adiaeresis, Adiaeresis ] };
+    key <AD11> { type = "FOUR_LEVEL", [ bracketleft, braceleft, aring, Aring ] };
+};
+

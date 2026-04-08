@@ -30,7 +30,18 @@ Linux
 I tried using wtype and keyd, but neither works well, and it's inconsistent,
 both between identical computers and depending on app.
 
-Instead, I've added some keyboard layout options.
+Instead, I'm using a combination of a custom layout, keyd and sway/hyprland config:
+
+- The custom layout, `us_for_swedes`, should be installed in `~/.config/xkb/symbols/`.
+
+- This custom layout is selected as the default layout, for example in Sway:
+
+    input type:keyboard {
+        xkb_layout "us_for_swedes"
+    }
+
+- Finally, `keyd` is configured to treat single press on caps-lock as escape,
+  and caps-lock + any other key as `alt-gr`.
 
 Some tips:
 
