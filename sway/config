@@ -11,15 +11,15 @@ set $right l
 
 set $term ghostty
 
+set $screenshot 'grim -g "$(slurp)" -t png - | wl-copy -t image/png'
+
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu rofi -show drun
 
 include /etc/sway/config-vars.d/*
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# Always launch the swww daemon and set a wallpaper
+exec_always ~/bin/wallpaper
 
 ### Idle configuration
 exec swayidle -w \
@@ -28,8 +28,12 @@ exec swayidle -w \
          before-sleep 'swaylock -f -c 000000'
 
 ### Input configuration
-input * {
-	xkb_options "caps:escape"
+# input * {
+# 	xkb_options "caps:escape"
+# }
+#
+input type:keyboard {
+    xkb_layout "us_for_swedes"
 }
 
 ### Key bindings
@@ -46,13 +50,14 @@ bindsym $mod+Space exec $menu
 # Toggle Waybar
 bindsym $mod+w exec pkill -USR1 waybar
 
+# Grab screenshot
+bindsym $mod+g exec $screenshot
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
 # Change normal to inverse to use left mouse button for resizing and right
-# mouse button for dragging.
-floating_modifier $mod normal
-
+# mouse button for dragging. floating_modifier $mod normal
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -113,18 +118,18 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Swedish characters with $mod, using wtype. Does not work in Slack.
-bindsym $mod+bracketleft exec --no-startup-id wtype å
-bindsym $mod+Shift+bracketleft exec --no-startup-id wtype Å
-bindsym $mod+apostrophe exec --no-startup-id wtype ä
-bindsym $mod+Shift+apostrophe exec --no-startup-id wtype Ä
-bindsym $mod+semicolon exec --no-startup-id wtype ö
-bindsym $mod+Shift+semicolon exec --no-startup-id wtype Ö
+# bindsym $mod+bracketleft exec --no-startup-id wtype å
+# bindsym $mod+Shift+bracketleft exec --no-startup-id wtype Å
+# bindsym $mod+apostrophe exec --no-startup-id wtype ä
+# bindsym $mod+Shift+apostrophe exec --no-startup-id wtype Ä
+# bindsym $mod+semicolon exec --no-startup-id wtype ö
+# bindsym $mod+Shift+semicolon exec --no-startup-id wtype Ö
 
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym $mod+b splith
-bindsym $mod+v splitv
+# bindsym $mod+b splith
+# bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
 # bindsym $mod+s layout stacking
@@ -135,7 +140,7 @@ bindsym $mod+v splitv
 bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
-# bindsym $mod+Shift+space floating toggle
+bindsym $mod+v floating toggle
 
 # Swap focus between the tiling area and the floating area
 # bindsym $mod+space focus mode_toggle
