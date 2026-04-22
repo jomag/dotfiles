@@ -5,17 +5,21 @@ WALLPAPERS_DIR="$HOME/wallpapers/"
 TRANSITION_TYPE=random
 
 # Start daemon if not already running
-if pgrep -x swww-daemon >/dev/null 2>&1; then
-  echo "swww-daemon already running."
+if pgrep -x awww-daemon >/dev/null 2>&1; then
+  echo "awww-daemon already running."
 else
-  echo "swww-daemon not running. starting it..."
-  swww-daemon &
+  echo "awww-daemon not running. starting it..."
+  awww-daemon &
   sleep 1
 fi
 
+if [[ -z "${1:-}" ]]; then
 # Pick a single, random wallpaper image
-PICK=$(find "$WALLPAPERS_DIR" -type f | shuf -n 1)
+  PICK=$(find "$WALLPAPERS_DIR" -type f | shuf -n 1)
+else
+  PICK="$1"
+fi
 
 echo "Pick: $PICK"
-swww img "$PICK" --transition-type $TRANSITION_TYPE --transition-duration 1.2
+awww img "$PICK" --transition-type $TRANSITION_TYPE --transition-duration 1.2
 
