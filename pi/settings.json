@@ -1,0 +1,7 @@
+{
+  "lastChangelogVersion": "0.84.4",
+  "theme": "dark",
+  "defaultProvider": "svullo",
+  "defaultModel": "ggml-gemma",
+  "hideThinkingBlock": true
+}
