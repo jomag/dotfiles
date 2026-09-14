@@ -38,6 +38,7 @@
     "webapps/obsidian.desktop": "~/.local/share/applications/obsidian.desktop",
     "environment.d/10-path.conf": "~/.config/environment.d/10-path.conf",
     "keyboard-layouts/us_for_swedes": "~/.config/xkb/symbols/us_for_swedes",
+    "pi/package.json": "~/.pi/agent/package.json",
     "pi/models.json": "~/.pi/agent/models.json",
     "pi/settings.json": "~/.pi/agent/settings.json",
     "pi/extensions": "~/.pi/agent/extensions"

@@ -37,18 +37,18 @@ const modes: Record<string, Mode> = {
     commands: ["ask", "a"],
     description: "Strict rubber-ducking with no read access",
     instruction: askModeInstruction,
-    tools: []
+    tools: ["web_fetch"]
   },
   plan: {
     commands: ["plan", "p"],
-    tools: ["read", "ls", "find", "grep"],
+    tools: ["read", "ls", "find", "grep", "web_fetch"],
     instruction: planModeInstruction
   },
   build: {
     commands: ["build", "b"],
     description: "Allow file changes. Confirm all potentially mutating shell commands.",
     instruction: buildModeInstruction,
-    tools: ["read", "ls", "find", "grep", "bash", "edit", "write"],
+    tools: ["read", "ls", "find", "grep", "bash", "edit", "write", "web_fetch"],
     safeCommands: new Set(["git status", "git status --short", "git diff", "git diff --stat", "git log --oneline"])
   }
 

@@ -3,5 +3,5 @@
   "theme": "dark",
   "defaultProvider": "svullo",
   "defaultModel": "ggml-gemma",
-  "hideThinkingBlock": true
+  "hideThinkingBlock": true,
 }
