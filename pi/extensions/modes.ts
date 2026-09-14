@@ -1,4 +1,8 @@
-import { isToolCallEventType, type ExtensionAPI, type ExtensionContext } from "@earendil-works/pi-coding-agent";
+import {
+  isToolCallEventType,
+  type ExtensionAPI,
+  type ExtensionContext,
+} from "@earendil-works/pi-coding-agent";
 
 const planModeInstruction = `
 You are in Plan mode.
@@ -19,40 +23,58 @@ You are in Build mode.
 The user has authorized file changes by explicitly entering this mode.
 Make only the requested changes and explain what you changed.
 Do not commit, push, install packages or alter configuration unless explicitly asked.
-Shell commands outside the read-only allowlist require user approval.
+Every edit and write requires user approval after its pending change preview is shown.
+Shell commands outside the white list require user approval.
 Do not try to work around a denied command.
 `;
 
 type Mode = {
-  commands?: string[],
-  description?: string,
-  instruction?: string,
-  modeline?: string,
-  tools?: string[],
-  safeCommands?: Set<string>
-}
+  commands?: string[];
+  description?: string;
+  instruction?: string;
+  modeline?: string;
+  tools?: string[];
+  safeCommands?: Set<string>;
+};
 
 const modes: Record<string, Mode> = {
   ask: {
     commands: ["ask", "a"],
     description: "Strict rubber-ducking with no read access",
     instruction: askModeInstruction,
-    tools: ["web_fetch"]
+    tools: ["web_fetch"],
   },
   plan: {
     commands: ["plan", "p"],
-    tools: ["read", "ls", "find", "grep", "web_fetch"],
-    instruction: planModeInstruction
+    description: "Plan projects without altering anything",
+    tools: ["read", "ls", "find", "grep", "web_fetch", "aws_read"],
+    instruction: planModeInstruction,
   },
   build: {
     commands: ["build", "b"],
-    description: "Allow file changes. Confirm all potentially mutating shell commands.",
+    description:
+      "Allow file changes with per-change approval. Confirm all commands that are not white listed.",
     instruction: buildModeInstruction,
-    tools: ["read", "ls", "find", "grep", "bash", "edit", "write", "web_fetch"],
-    safeCommands: new Set(["git status", "git status --short", "git diff", "git diff --stat", "git log --oneline"])
-  }
-
-}
+    tools: [
+      "read",
+      "ls",
+      "find",
+      "grep",
+      "bash",
+      "edit",
+      "write",
+      "web_fetch",
+      "aws_read",
+    ],
+    safeCommands: new Set([
+      "git status",
+      "git status --short",
+      "git diff",
+      "git diff --stat",
+      "git log --oneline",
+    ]),
+  },
+};
 
 export default function (pi: ExtensionAPI): void {
   let activeMode: string | undefined;
@@ -65,14 +87,20 @@ export default function (pi: ExtensionAPI): void {
     const prev = activeMode;
     activeMode = mode;
     pi.setActiveTools(modes[mode]?.tools ?? []);
-    ctx.ui.setStatus("modes", ctx.ui.theme.fg("accent", modes[mode]?.modeline ?? mode));
+    ctx.ui.setStatus(
+      "modes",
+      ctx.ui.theme.fg("accent", modes[mode]?.modeline ?? mode),
+    );
 
     if (announce && prev) {
-      pi.sendMessage({
-        customType: "mode-change",
-        content: `Mode changed from '${prev}' to '${mode}'`,
-        display: true
-      }, { triggerTurn: false });
+      pi.sendMessage(
+        {
+          customType: "mode-change",
+          content: `Mode changed from '${prev}' to '${mode}'`,
+          display: true,
+        },
+        { triggerTurn: false },
+      );
     }
   }
 
@@ -97,7 +125,7 @@ export default function (pi: ExtensionAPI): void {
 
     return {
       systemPrompt: `${event.systemPrompt}\n\n${instruction}`,
-    }
+    };
   });
 
   pi.on("session_start", async (_event, ctx) => {
@@ -106,6 +134,28 @@ export default function (pi: ExtensionAPI): void {
 
   pi.on("tool_call", async (event, ctx) => {
     if (activeMode !== "build") {
+      return;
+    }
+
+    if (isToolCallEventType("edit", event)) {
+      const allowed = await ctx.ui.confirm(
+        "Apply this edit?",
+        `Review the pending diff for ${event.input.path} above.`,
+      );
+      if (!allowed) {
+        return { block: true, reason: "User rejected the proposed edit" };
+      }
+      return;
+    }
+
+    if (isToolCallEventType("write", event)) {
+      const allowed = await ctx.ui.confirm(
+        "Write this file?",
+        `Review the pending contents for ${event.input.path} above.`,
+      );
+      if (!allowed) {
+        return { block: true, reason: "User rejected the proposed write" };
+      }
       return;
     }
 
@@ -123,8 +173,8 @@ export default function (pi: ExtensionAPI): void {
     if (!allowed) {
       return {
         block: true,
-        reason: "The user declined this shell command"
-      }
+        reason: "The user declined this shell command",
+      };
     }
   });
 }
