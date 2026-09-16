@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Excalidraw
+Icon=excalidraw
+Terminal=false
+Type=Application
+Categories=
+Exec=sh -c 'chromium --app="https://excalidraw.com" --user-data-dir="$HOME/.webapps/excalidraw"'

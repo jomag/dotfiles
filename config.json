@@ -29,6 +29,7 @@
     "webapps/teams.desktop": "~/.local/share/applications/teams.desktop",
     "webapps/outlook.desktop": "~/.local/share/applications/outlook.desktop",
     "webapps/mail.desktop": "~/.local/share/applications/mail.desktop",
+    "webapps/excalidraw.desktop": "~/.local/share/applications/excalidraw.desktop",
     "keyboard-layouts/custom-layout": "~/.config/xkb/symbols/custom",
     "keyboard-layouts/custom-rules": "~/.config/xkb/rules/evdev",
     "sway/config": "~/.config/sway/config",
