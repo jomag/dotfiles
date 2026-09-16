@@ -1,12 +1,11 @@
 {
   "private": true,
   "devDependencies": {
+    "@earendil-works/pi-ai": "^0.84.4",
     "@earendil-works/pi-coding-agent": "^0.84.4",
     "@types/node": "^26.6.5",
+    "html-to-text": "^10.0.1",
     "prettier": "^3.9.10",
     "typescript": "^7.0.2"
   },
-  "dependencies": {
-    "html-to-text": "^10.0.1"
-  }
 }

@@ -1,7 +1,10 @@
 {
-  "lastChangelogVersion": "0.84.4",
+  "lastChangelogVersion": "0.85.1",
   "theme": "dark",
   "defaultProvider": "svullo",
   "defaultModel": "ggml-gemma",
   "hideThinkingBlock": true,
+  "packages": [],
+  "tuiMode": "regular",
+  "showHardwareCursor": true
 }

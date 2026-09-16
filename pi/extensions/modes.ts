@@ -54,6 +54,7 @@ const modes: Record<string, Mode> = {
       "grep",
       "web_fetch",
       "aws_read",
+      "git_read",
       "rust_check",
       "rust_clippy",
     ],
@@ -74,16 +75,11 @@ const modes: Record<string, Mode> = {
       "write",
       "web_fetch",
       "aws_read",
+      "git_read",
       "rust_check",
       "rust_clippy",
     ],
-    safeCommands: new Set([
-      "git status",
-      "git status --short",
-      "git diff",
-      "git diff --stat",
-      "git log --oneline",
-    ]),
+    safeCommands: new Set([]),
   },
 };
 

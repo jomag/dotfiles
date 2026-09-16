@@ -27,6 +27,7 @@ const BLOCKED_ARG_FLAGS = new Set([
   "--region",
   "--output",
   "--endpoint-url",
+  "--debug",
 ]);
 
 function validateOutputLimit(limit: unknown): number {
@@ -61,8 +62,10 @@ function validateExtraArgs(args: string[]): string | undefined {
       return "Arguments may not contain null bytes";
     }
 
-    if (BLOCKED_ARG_FLAGS.has(arg)) {
-      return `Do not pass ${arg} in args; use the dedicated tool parameter instead`;
+    for (const blocked of BLOCKED_ARG_FLAGS) {
+      if (blocked === arg || arg.startsWith(`${blocked}=`)) {
+        return `Do not pass ${blocked} in args; use the dedicated tool parameter instead`;
+      }
     }
   }
 }
