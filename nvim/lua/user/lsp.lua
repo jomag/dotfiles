@@ -62,7 +62,8 @@ vim.lsp.enable({
   "emmet_ls",
   "astro",
   "taplo",
-  "yamlls"
+  "yamlls",
+  "terraformls"
 })
 
 local lspconfig = require('lspconfig')

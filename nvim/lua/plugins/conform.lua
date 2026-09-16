@@ -23,6 +23,8 @@ return {
         lua = { 'stylua' },
         python = { 'ruff_format' }, -- alternatives: isort, black
         astro = { 'prettier', 'prettier-plugin-astro' },
+        terraform = { 'terraform_fmt' },
+        tf = { 'terraform_fmt' },
       },
 
       format_on_save = {
