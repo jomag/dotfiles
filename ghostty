@@ -13,3 +13,4 @@ theme = "Banana Blueberry"
 window-decoration = false
 app-notifications = no-clipboard-copy
 
+mouse-scroll-multiplier = discrete:0.5
