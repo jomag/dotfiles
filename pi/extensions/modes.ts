@@ -47,7 +47,16 @@ const modes: Record<string, Mode> = {
   plan: {
     commands: ["plan", "p"],
     description: "Plan projects without altering anything",
-    tools: ["read", "ls", "find", "grep", "web_fetch", "aws_read"],
+    tools: [
+      "read",
+      "ls",
+      "find",
+      "grep",
+      "web_fetch",
+      "aws_read",
+      "rust_check",
+      "rust_clippy",
+    ],
     instruction: planModeInstruction,
   },
   build: {
@@ -65,6 +74,8 @@ const modes: Record<string, Mode> = {
       "write",
       "web_fetch",
       "aws_read",
+      "rust_check",
+      "rust_clippy",
     ],
     safeCommands: new Set([
       "git status",

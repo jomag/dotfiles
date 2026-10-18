@@ -41,7 +41,8 @@
     "pi/package.json": "~/.pi/agent/package.json",
     "pi/models.json": "~/.pi/agent/models.json",
     "pi/settings.json": "~/.pi/agent/settings.json",
-    "pi/extensions": "~/.pi/agent/extensions"
+    "pi/extensions": "~/.pi/agent/extensions",
+    "pi/skills": "~/.pi/agent/skills"
   },
   "macos": {
     "links": {
