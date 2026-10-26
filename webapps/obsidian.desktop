@@ -2,4 +2,4 @@
 Name=Obsidian
 Terminal=false
 Type=Application
-Exec=/home/jonatan/bin/Obsidian.AppImage --no-sandbox
+Exec=obsidian
