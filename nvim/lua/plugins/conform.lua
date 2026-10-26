@@ -25,6 +25,7 @@ return {
         astro = { 'prettier', 'prettier-plugin-astro' },
         terraform = { 'terraform_fmt' },
         tf = { 'terraform_fmt' },
+        dart = { 'dart_format' },
       },
 
       format_on_save = {

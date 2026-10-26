@@ -63,7 +63,8 @@ vim.lsp.enable({
   "astro",
   "taplo",
   "yamlls",
-  "terraformls"
+  "terraformls",
+  "openscad_lsp",
 })
 
 local lspconfig = require('lspconfig')
