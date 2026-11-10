@@ -3,6 +3,7 @@ import { StringEnum } from "@earendil-works/pi-ai";
 import { Type } from "typebox";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { resolve } from "node:path";
 
 const execFileAsync = promisify(execFile);
 
@@ -43,6 +44,31 @@ function validateCount(count: unknown, fallback: number): number {
 
   // FIXME: do not hardcode 500 here...
   return Math.min(Math.max(Math.floor(count), 1), 500);
+}
+
+function resolveGitCwd(value: unknown, baseCwd: string): string {
+  if (value === undefined) {
+    return baseCwd;
+  }
+
+  if (typeof value !== "string") {
+    throw new Error("Invalid cwd");
+  }
+
+  const cwd = value.trim();
+
+  if (cwd.length <= 0 || cwd.length > 2000) {
+    throw new Error("Invalid cwd length");
+  }
+
+  for (const char of cwd) {
+    const code = char.charCodeAt(0);
+    if (code < 32 || code === 127) {
+      throw new Error("Illegal characters in cwd");
+    }
+  }
+
+  return resolve(baseCwd, cwd);
 }
 
 function isSafeRev(rev: string): boolean {
@@ -131,6 +157,7 @@ export default function (pi: ExtensionAPI): void {
     description:
       "Read-only Git inspection tool for status, log, reflog, commits, historical file contents, diffs, trees, refs, branches, tags, merge-base, and blame.",
     promptGuidelines: [
+      "Use git_read with cwd when the user asks about a repository outside of the current working directory.",
       "Use git_read instead of bash for read-only Git inspection.",
       "Use git_read status before reasoning about the current repository state.",
       "Use git_read log or file_history to inspect recent history.",
@@ -174,11 +201,18 @@ export default function (pi: ExtensionAPI): void {
           description: `Maximum returned output characters. Default: ${DEFAULT_OUTPUT_LIMIT_CHARS}`,
         }),
       ),
+      cwd: Type.Optional(
+        Type.String({
+          description:
+            "Directory to run Git in. Defaults to Pi's current working directory.",
+        }),
+      ),
     }),
 
     async execute(_toolCallId, params, signal, _onUpdate, ctx) {
       const maxChars = validateOutputLimit(params.maxChars);
       const args: string[] = ["--no-pager"];
+      const gitCwd = resolveGitCwd(params.cwd, ctx.cwd);
 
       switch (params.action) {
         case "status": {
@@ -357,7 +391,7 @@ export default function (pi: ExtensionAPI): void {
       }
 
       const { stdout, stderr } = await execFileAsync("git", args, {
-        cwd: ctx.cwd,
+        cwd: gitCwd,
         timeout: DEFAULT_TIMEOUT_MS,
         maxBuffer: Math.max(maxChars * 4, 1024 * 1024),
         signal,
@@ -380,6 +414,7 @@ export default function (pi: ExtensionAPI): void {
             type: "text",
             text: [
               `Command git ${args.join(" ")}`,
+              `Working directory: ${gitCwd}`,
               `Truncated: ${truncated}`,
               "",
               returned,
@@ -389,6 +424,7 @@ export default function (pi: ExtensionAPI): void {
         details: {
           action: params.action,
           args,
+          cwd: gitCwd,
           truncated,
         },
       };
