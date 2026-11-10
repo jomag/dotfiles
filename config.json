@@ -20,6 +20,7 @@
     "bin/make-this-primary": "~/bin/make-this-primary",
     "bin/wallpaper": "~/bin/wallpaper",
     "bin/monitor-layout-sway.py": "~/bin/monitor-layout-sway",
+    "hyprland.lua": "~/.config/hypr/hyprland.lua",
     "hyprland.conf": "~/.config/hypr/hyprland.conf",
     "hyprpaper.conf": "~/.config/hypr/hyprpaper.conf",
     "hyprlock.conf": "~/.config/hypr/hyprlock.conf",
