@@ -13,6 +13,7 @@
     "_zshrc": "~/.zshrc",
     "ghostty": "~/.config/ghostty/config",
     "mc/skins/norton.ini": "~/.local/share/mc/skins/norton.ini",
+    "bin/shot": "~/bin/shot",
     "bin/git-repo-config": "~/bin/git-repo-config",
     "bin/battery-warning.py": "~/bin/battery-warning.py",
     "bin/update-hypridle-power.sh": "~/bin/update-hypridle-power.sh",
@@ -42,8 +43,9 @@
     "pi/package.json": "~/.pi/agent/package.json",
     "pi/models.json": "~/.pi/agent/models.json",
     "pi/settings.json": "~/.pi/agent/settings.json",
-    "pi/extensions": "~/.pi/agent/extensions",
-    "pi/skills": "~/.pi/agent/skills"
+    "pi/skills": "~/.pi/agent/skills",
+    "pi/keybindings.json": "~/.pi/agent/keybindings.json",
+    "pi/extensions": "~/.pi/agent/extensions"
   },
   "macos": {
     "links": {

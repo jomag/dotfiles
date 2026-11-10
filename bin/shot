@@ -1,0 +1,11 @@
+#!/bin/sh
+delay=${1:-0}
+geom=$(slurp) || exit 1
+
+if [ "$delay" -gt 0 ]; then
+  notify-send -t "$(( delay * 1000 - 500 ))" "Screenshot in $delay seconds"
+  sleep "$delay"
+fi
+
+grim -g "$geom" -t png - | wl-copy -t image/png
+notify-send "Screenshot in clipboard"
