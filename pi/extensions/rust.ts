@@ -1,7 +1,8 @@
 // Disclaimer: This file was generated with AI assistance.
 
 import { execFile } from "node:child_process";
-import { watch, type FSWatcher } from "node:fs";
+import { existsSync, watch, type FSWatcher } from "node:fs";
+import { join } from "node:path";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
 
@@ -151,9 +152,21 @@ export default function (pi: ExtensionAPI): void {
 
 	pi.on("session_start", (_e, c) => {
 		ctx = c;
+
+		// Only watch Rust projects. A recursive fs.watch registers an OS-level
+		// inotify watch for every file/directory in the tree up front, so doing
+		// this unconditionally on non-Rust projects (e.g. Node repos with huge
+		// node_modules trees) can exhaust the system-wide inotify watch limit.
+		if (!existsSync(join(c.cwd, "Cargo.toml"))) {
+			return;
+		}
+
 		try {
 			watcher = watch(c.cwd, { recursive: true }, (_ev, name) => {
 				if (!name || (!name.endsWith(".rs") && name !== "Cargo.toml")) {
+					return;
+				}
+				if (name.split(/[/\\]/).includes("target")) {
 					return;
 				}
 				clearTimeout(timer);
