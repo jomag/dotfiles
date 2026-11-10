@@ -10,7 +10,12 @@ const DEFAULT_OUTPUT_LIMIT_CHARS = 50_000;
 const MAX_OUTPUT_CHARS = 200_000;
 
 const SAFE_OPERATION_PREFIXES = ["describe-", "list-", "get-", "search-"];
-const SAFE_EXACT_OPERATIONS = new Set(["sts:get-caller-identity"]);
+const SAFE_EXACT_OPERATIONS = new Set([
+  "sts:get-caller-identity",
+  "logs:start-query",
+  "logs:get-query-results",
+  "logs:stop-query",
+]);
 
 const BLOCKED_OPERATIONS = new Set([
   "secretsmanager:get-secret-value",
