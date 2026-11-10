@@ -52,6 +52,12 @@ if test -d $HOME/Android
 	set PATH ~/Android/Sdk/emulator $PATH
 end
 
+if test -d $HOME/android-studio
+	set PATH ~/android-studio/Sdk/platform-tools $PATH
+	set PATH ~/android-studio/Sdk/tools $PATH
+	set PATH ~/android-studio/Sdk/emulator $PATH
+end
+
 # Add Homebrew in /opt to path
 if test -d /opt/homebrew
 	set PATH /opt/homebrew/bin $PATH
@@ -123,6 +129,8 @@ end
 # if test -d /usr/local/opt/ruby/bin
 #    set PATH /usr/local/opt/ruby/bin $PATH
 # end
+
+
 
 # Heroku
 # set PATH /usr/local/heroku/bin $PATH
